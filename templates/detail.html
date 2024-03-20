@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{{item.fakultet}}{% endblock title %}
+
+{% block content %}
+      <main class="flex-container">
+        <div id="micro_block" class="row">
+            <div itemid="micro_back_partone" class="col-6" id="micro_div">
+                <div id="micro_back">
+                    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                          <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                          <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                        </div>
+                        
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                              {% if item.image %}
+                              <img id="img" src="{{ item.image.url }}" alt="">
+                              {% else %}
+                              <p>Ushbu obyekt haqida serverga rasm yuklanmagan</p>
+                              {% endif %}
+                          </div>
+
+                        </div>
+                        
+                        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                          <span class="carousel-control-next-icon"></span>
+                        </button>
+                      </div>
+                </div>
+            </div>
+            <div id="micro_back_parttwo" class="col-6 mt-5" >
+                <div class="container" id="text_div">
+                    <p id="text_big_id" class="text-center mt-5">{{ item.name }}</p>
+                    <p id="text_big">{{ item.text }}</p>
+                </div>
+                <div id="tools" class="d-flex flex-row-reverse justify-content-between mt-3">
+                    <button id="item1" class="p-2" data-bs-toggle="modal" data-bs-target="#myModal1"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 11h8V3H3zm2-6h4v4H5zM3 21h8v-8H3zm2-6h4v4H5zm8-12v8h8V3zm6 6h-4V5h4zm-5.99 4h2v2h-2zm2 2h2v2h-2zm-2 2h2v2h-2zm4 0h2v2h-2zm2 2h2v2h-2zm-4 0h2v2h-2zm2-6h2v2h-2zm2 2h2v2h-2z"></path></svg></button>
+                    <button onclick="openVideoModal()" id="item2" class="p-2" data-bs-toggle="modal" data-bs-target="#myModal2"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path fill="currentColor" d="m162.22 108.67l-48-32A4 4 0 0 0 108 80v64a4 4 0 0 0 2.11 3.53a4 4 0 0 0 4.11-.2l48-32a4 4 0 0 0 0-6.66M116 136.53V87.47L152.79 112ZM216 44H40a12 12 0 0 0-12 12v112a12 12 0 0 0 12 12h176a12 12 0 0 0 12-12V56a12 12 0 0 0-12-12m4 124a4 4 0 0 1-4 4H40a4 4 0 0 1-4-4V56a4 4 0 0 1 4-4h176a4 4 0 0 1 4 4Zm8 40a4 4 0 0 1-4 4H32a4 4 0 0 1 0-8h192a4 4 0 0 1 4 4"></path></svg></button>
+                    <button onclick="openAudioModal()" id="item3" class="p-2" data-bs-toggle="modal" data-bs-target="#myModal3"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M42.5 31.499v-6.46c0-10.217-8.283-18.5-18.5-18.5S5.5 14.823 5.5 25.04v6.46"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M10.85 26.148h1.23a2.698 2.698 0 0 1 2.697 2.697v9.919a2.698 2.698 0 0 1-2.696 2.696h-1.23A5.353 5.353 0 0 1 5.5 36.11V31.5a5.353 5.353 0 0 1 5.35-5.35m26.226 15.31h-1.23a2.698 2.698 0 0 1-2.697-2.697v-9.919a2.698 2.698 0 0 1 2.696-2.696h1.231a5.353 5.353 0 0 1 5.35 5.35v4.612a5.353 5.353 0 0 1-5.35 5.35"></path></svg></button>
+                  </div>
+            </div>
+        </div>
+      
+      </main>
+      
+      <footer id="footer_div" class="bg-body-tertiary text-center text-lg-start">
+        <div id="footer" class="text-center p-3">
+          © 2024 Copyright:
+          <a class="text-body" href="https://Akadmvd.uz/">Akadmvd.uz</a>
+        </div>
+      </footer>
+
+
+
+      <div class="modal" id="myModal1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+
+
+              <div class="modal-body" id="Qr">
+                <button class="btn btn-secondary d-block m-auto">
+                    <a style="text-decoration: none; color: white;" href="{% url 'download_qr_code' item.pk %}"><img id="pngqr" src="{{ qrcode }}" alt="">{% blocktrans %}Yuklash olish{% endblocktrans %} </a>
+                </button>
+              </div>
+      
+      
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="myModal2">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+
+
+              <div class="modal-body" id="Video">
+                <video class="d-flex m-auto" width="600" height="400" controls>
+                    {% if item.video %}
+                        <source src="{{ item.video.url }}" type="video/mp4">
+                      {% else %}
+                      <p>Video kiritmadingiz</p>
+                    {% endif %}
+                </video>
+              </div>
+      
+      
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="myModal3">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+
+
+              <div class="modal-body" id="Audio">
+                <figure>
+                  <figcaption id="audio_text" class="text-center mb-3">Audio</figcaption>
+                    {% if item.audio %}
+                    <audio class="d-flex m-auto" controls src="{{ item.audio.url }}"></audio>
+                    {% else %}
+                    <p> Audio kiritmadingiz</p>
+                    {% endif %}
+                </figure>
+              </div>
+      
+      
+          </div>
+        </div>
+      </div>
+
+{% endblock content %}
+
+
+
+

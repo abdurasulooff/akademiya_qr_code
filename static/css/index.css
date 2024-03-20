@@ -1,0 +1,332 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  color: #000000;
+  background-color: rgb(240, 243, 247);
+}
+#logo_div{
+  padding: 0;
+  margin-right: 0 !important;
+}
+
+#navbar-logo {
+  width: 28%;
+  transition: transform 300ms ease-in-out;
+  cursor: pointer;
+  position: relative;
+}
+
+#text_logo{
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  padding-bottom: 0;
+  margin: 0;
+  font-size: 22px;
+  transition: transform 300ms ease;
+}
+#text_logo:hover{
+  color: red;
+}
+
+#navbar-logo:hover {
+  transform: translateY(-5px);
+}
+
+.navbar-brand a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.navbar-brand a:hover {
+  color: inherit;
+}
+
+nav #brandlogo {
+  font-size: 35px;
+  font-weight: 500;
+  transition: transform 400ms ease;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+
+}
+
+nav #brandlogo:hover {
+  color: rgb(214, 6, 6);
+}
+
+nav #lang_button {
+  border: none;
+  color: rgb(0, 0, 0);
+  background: transparent;
+  transition: transform 300ms ease;
+  border-radius: 8%;
+}
+
+nav #lang_button:hover {
+  color: rgb(255, 0, 0);
+  transform: scale(1.1);
+}
+
+nav #lang_button.active {
+  color: red;
+}
+
+nav #sun_button_div {
+  border: none;
+  background: transparent;
+  color: rgb(0, 0, 0);
+  transition: transform 300ms ease;
+}
+
+nav #sun_button_div:hover {
+  transform: scale(1.1);
+  color: rgb(255, 0, 0);
+}
+
+nav #sun_button {
+  width: 40px;
+  height: 30px;
+}
+
+nav #menu_lang {
+  left: -50%;
+}
+
+main {
+  height: auto;
+}
+
+.carousel-inner img {
+  width: 750px !important;
+  height: 700px;
+}
+
+main #micro_div {
+  position: relative;
+  padding: 50px;
+  margin: 0 auto;
+  height: 1000px;
+
+}
+
+main #micro_back {
+  width: 100%;
+  height: 0px;
+  padding: 10px;
+}
+
+main #text_div {
+  overflow: auto;
+  position: relative;
+  padding: 10px;
+  margin: 0 auto;
+  width: 100%;
+  height: 650px;
+}
+
+main #text_big {
+  font-family: "Montserrat", sans-serif;
+}
+main #text_big_id {
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+main #item2,
+main #item1,
+main #item3 {
+  background-color: rgb(240, 239, 239);
+  border-radius: 10%;
+  width: 100px;
+  height: 40px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transition: transform 300ms ease;
+  cursor: pointer;
+  border: none;
+}
+
+main #item2:hover,
+main #item1:hover,
+main #item3:hover {
+  transform: scale(1.1) translateY(-5px);
+  color: brown;
+}
+
+main #item2 svg {
+  width: 50px;
+  height: 50px;
+}
+
+main #item1 svg {
+  width: 50px;
+  height: 50px;
+}
+
+main #item3 svg {
+  width: 50px;
+  height: 50px;
+}
+
+#audio_text {
+  font-size: 20px;
+}
+
+#pngqr {
+  width: 100%;
+}
+
+.dropdown-item:focus {
+  outline-color: red !important;
+  outline-width: 2px;
+  outline-style: dashed;
+}
+
+#tools {
+  background: #fff;
+}
+
+footer {
+  background: rgb(240, 243, 247);
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.dark-mode {
+  color: #ffffff;
+  background: rgb(59, 59, 59);
+}
+
+.dark-mode nav {
+  background-color: rgb(126, 119, 119);
+  color: #fff;
+}
+
+.dark-mode #footer {
+  color: #ffffff;
+  background-color: rgb(126, 119, 119);
+}
+
+.dark-mode #tools {
+  color: #ffffff;
+  background-color: rgb(59, 59, 59);
+}
+
+.dark-mode #tools button svg {
+  color: #ffffff;
+}
+
+.dark-mode main #item2 {
+  background-color: rgb(126, 119, 119);
+  color: white;
+}
+.dark-mode main #item1 {
+  background-color: rgb(126, 119, 119);
+  color: white;
+}
+.dark-mode main #item3 {
+  background-color: rgb(126, 119, 119);
+  color: white;
+}
+.dark-mode .modal-body{
+  background-color: rgb(126, 119, 119);
+}
+.dark-mode  .modal-header{
+  background-color: rgb(126, 119, 119);
+}
+.dark-mode #mp3{
+  background-color: rgb(126, 119, 119);
+}
+.dark-mode nav #sun_button_div svg {
+  color: white;
+}
+.dark-mode nav #lang_button svg {
+  color: white;
+}
+
+.dark-mode nav #menu_lang {
+  background: rgb(126, 119, 119);
+  color: rgb(255, 255, 255);
+}
+
+.dark-mode #uz {
+  color: white;
+}
+.dark-mode #ru {
+  color: white;
+}
+.dark-mode #en {
+  color: white;
+}
+
+@media screen and (min-width: 950px) and (max-width: 1300px) {
+  .carousel-inner img {
+    width: 400px !important;
+    height: 600px;
+  }
+  #brandlogo{
+    margin-right: 50% !important;
+  }
+  #footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+}
+@media screen and (min-width: 300px) and (max-width: 950px) {
+  .carousel-inner img {
+    max-width: 100%; 
+    height: auto;
+    margin: 0 auto;
+  }
+
+  #text_logo{
+    align-items: center;
+    margin: 0 auto !important;
+  }
+  #micro_back_parttwo{
+    margin-bottom: 200px;
+  }
+  #micro_block .col-6 {
+    width: 100%;
+
+    order: unset;
+  }
+  #tools {
+    margin-bottom: 20px;
+  }
+  #navbar-logo {
+    padding: 10px;
+    width: 120px;
+    transition: transform 300ms ease-in-out;
+    cursor: pointer;
+  }
+  nav #menu_lang {
+    margin-left: 30px;
+  }
+  nav #brandlogo {
+    text-align: center;
+  }
+  nav #brandlogo:hover {
+    transform: scale(1.1);
+    color: rgb(0, 0, 0);
+  }
+}
