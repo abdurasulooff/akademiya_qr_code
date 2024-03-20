@@ -49,8 +49,7 @@
                             {% for language in languages %}
                             <li class="nav-item">
                                 <button type="submit" name="language" value="{{ language.code }}" id="langbut" class="btn btn-link nav-link">
-                                    <span class="flag-icon flag-icon-{{ language.code|lower }}"></span>
-                                    {{ language.name_local }}
+                                    <img src="{% static 'images/flags/' %}{{ language.code }}.png" class="flag" alt="{{ language.name }}" style="width: 24px; height: auto;">
                                 </button>
                             </li>
                             {% endfor %}
