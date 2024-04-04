@@ -21,16 +21,21 @@
 }
 
 #navbar-logo {
-  width: 28%;
+  width: 150px;
   transition: transform 300ms ease-in-out;
   cursor: pointer;
   position: relative;
+}
+
+.static{
+  color: black;
 }
 
 #text_logo{
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   padding-bottom: 0;
+  color: black !important;
   margin: 0;
   font-size: 22px;
   transition: transform 300ms ease;
@@ -274,6 +279,13 @@ footer {
 .dark-mode #en {
   color: white;
 }
+.dark-mode #text_logo {
+  color: white !important;
+}
+.dark-mode .static{
+  color: white;
+}
+
 
 @media screen and (min-width: 950px) and (max-width: 1300px) {
   .carousel-inner img {
@@ -293,12 +305,13 @@ footer {
 }
 @media screen and (min-width: 300px) and (max-width: 950px) {
   .carousel-inner img {
-    max-width: 100%; 
+    max-width: 100%;
     height: auto;
     margin: 0 auto;
   }
 
   #text_logo{
+    color: black;
     align-items: center;
     margin: 0 auto !important;
   }

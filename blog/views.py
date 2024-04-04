@@ -1,9 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
-from .models import Items, Fakultet
+from .models import Items
 import segno
-from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse
 from django.conf import settings
@@ -18,25 +16,6 @@ class ItemsDetailView(DetailView):
     model = Items
     template_name = 'detail.html'
     context_object_name = 'item'
-
-class ItemsUpdateView(LoginRequiredMixin, UpdateView):
-    model = Items
-    template_name = 'update.html'
-    context_object_name = 'item_update'
-    fields = ['name', 'text', 'created_time', 'brand', 'audio','video', 'image', 'teacher']
-
-class ItemsDeleteView(LoginRequiredMixin, DeleteView):
-    model = Items
-    template_name = 'delete.html'
-    context_object_name = 'item_delete'
-    fields = ['name', 'text', 'created_time', 'brand', 'audio','video', 'image', 'teacher']
-    success_url = reverse_lazy('home')
-
-class ItemsCreateView(LoginRequiredMixin, CreateView):
-    model = Items
-    template_name = 'create.html'
-    context_object_name = 'item_create'
-    fields = ['name', 'text', 'created_time', 'brand', 'audio','video', 'image', 'teacher']
 
 
 @csrf_protect

@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{{item.fakultet}}{% endblock title %}
+{% block title %}<span class="static">{{item.fakultet}}</span>{% endblock title %}
 
 {% block content %}
       <main class="flex-container">
@@ -39,7 +39,7 @@
             </div>
             <div id="micro_back_parttwo" class="col-6 mt-5" >
                 <div class="container" id="text_div">
-                    <p id="text_big_id" class="text-center mt-5">{{ item.name }}</p>
+                    <p id="text_big_id" class="text-center mt-5">{{ item.name }} {{ item.audio.url }}</p>
                     <p id="text_big">{{ item.text }}</p>
                 </div>
                 <div id="tools" class="d-flex flex-row-reverse justify-content-between mt-3">
@@ -71,8 +71,11 @@
 
 
               <div class="modal-body" id="Qr">
+              <img id="pngqr" src="{{ qrcode }}" alt="QRcode">
                 <button class="btn btn-secondary d-block m-auto">
-                    <a style="text-decoration: none; color: white;" href="{% url 'download_qr_code' item.pk %}"><img id="pngqr" src="{{ qrcode }}" alt="">{% blocktrans %}Yuklash olish{% endblocktrans %} </a>
+                   <a style="text-decoration: none; color: white;" href="{% url 'download_qr_code' item.pk %}">
+                        {% blocktrans %}Yuklash olish{% endblocktrans %} 
+                    </a>
                 </button>
               </div>
       
@@ -89,15 +92,20 @@
               </div>
 
 
-              <div class="modal-body" id="Video">
+            <div class="modal-body" id="Video">
                 <video class="d-flex m-auto" width="600" height="400" controls>
-                    {% if item.video %}
-                        <source src="{{ item.video.url }}" type="video/mp4">
-                      {% else %}
-                      <p>Video kiritmadingiz</p>
+                    {% if LANGUAGE_CODE == 'ru' and item.video_ru %}
+                        <source src="{{ item.video_ru.url }}" type="video/mp4">
+                    {% elif LANGUAGE_CODE == 'en' and item.video_en %}
+                        <source src="{{ item.video_en.url }}" type="video/mp4">
+                    {% elif item.video_uz %}
+                        <source src="{{ item.video_uz.url }}" type="video/mp4">
+                    {% else %}
+                        <p>{% trans "Video kiritmadingiz" %}</p>
                     {% endif %}
                 </video>
-              </div>
+            </div>
+
       
       
           </div>
@@ -115,11 +123,15 @@
               <div class="modal-body" id="Audio">
                 <figure>
                   <figcaption id="audio_text" class="text-center mb-3">Audio</figcaption>
-                    {% if item.audio %}
-                    <audio class="d-flex m-auto" controls src="{{ item.audio.url }}"></audio>
-                    {% else %}
-                    <p> Audio kiritmadingiz</p>
-                    {% endif %}
+                        {% if LANGUAGE_CODE == 'ru' and item.audio_ru %}
+                            <audio class="d-flex m-auto" controls src="{{ item.audio_ru.url }}"></audio>
+                        {% elif LANGUAGE_CODE == 'en' and item.audio_en %}
+                            <audio class="d-flex m-auto" controls src="{{ item.audio_en.url }}"></audio>
+                        {% elif item.audio_uz %}
+                            <audio class="d-flex m-auto" controls src="{{ item.audio_uz.url }}"></audio>
+                        {% else %}
+                            <p>Audio kiritmadingiz</p>
+                        {% endif %}
                 </figure>
               </div>
       

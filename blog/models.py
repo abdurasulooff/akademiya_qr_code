@@ -36,11 +36,27 @@ class Items(models.Model):
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     brand = models.CharField(max_length=50)
-    audio = models.FileField(upload_to='musics/',
+    audio_uz = models.FileField(upload_to='musics/uz',
                              blank=True,
                              null=True,
                              )
-    video = models.FileField(upload_to="video/%y",
+    audio_ru = models.FileField(upload_to='musics/ru',
+                                blank=True,
+                                null=True,
+                                )
+    audio_en = models.FileField(upload_to='musics/en',
+                                blank=True,
+                                null=True,
+                                )
+    video_uz = models.FileField(upload_to="video/uz",
+                             blank=True,
+                             null=True,
+                             )
+    video_ru = models.FileField(upload_to="video/ru",
+                             blank=True,
+                             null=True,
+                             )
+    video_en = models.FileField(upload_to="video/en",
                              blank=True,
                              null=True,
                              )
