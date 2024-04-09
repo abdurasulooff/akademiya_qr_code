@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-06&3q@-9-!53+@f8e)gm!kse@p#r8i$z@2#wh6f6lr(^x+b%6i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['localhost', '0.0.0.0']
 
 
 # Application definition
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     #local apps
     'blog',
+    'users',
 
     #3rd apps
     'modeltranslation',
@@ -48,6 +49,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 TEMPLATES = [
     {

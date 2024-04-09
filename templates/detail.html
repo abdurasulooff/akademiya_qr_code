@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}<span class="static">{{item.fakultet}}</span>{% endblock title %}
+{% block title %}{{item.fakultet}}{% endblock title %}
 
 {% block content %}
       <main class="flex-container">
@@ -22,7 +22,8 @@
                               {% if item.image %}
                               <img id="img" src="{{ item.image.url }}" alt="">
                               {% else %}
-                              <p>Ushbu obyekt haqida serverga rasm yuklanmagan</p>
+                                  <img id="img" src="{% static 'default/no_image.jpg' %}" alt="">
+                                  <p>Ushbu obyekt haqida serverga rasm yuklanmagan</p>
                               {% endif %}
                           </div>
 
@@ -101,7 +102,8 @@
                     {% elif item.video_uz %}
                         <source src="{{ item.video_uz.url }}" type="video/mp4">
                     {% else %}
-                        <p>{% trans "Video kiritmadingiz" %}</p>
+                        <img src="{% static 'default/no_video.jpg' %}" alt="no video">
+                        <p>Video kiritmadingiz</p>
                     {% endif %}
                 </video>
             </div>

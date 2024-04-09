@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{%  load static %}
 {% block title %}{% endblock title %}
 
 {% block content %}
@@ -9,20 +10,34 @@
     <p class="text-center"></p>            
     <table class="table table-dark">
       <thead class="table-dark">
-        <tr>
-          <th>{% blocktrans %}Nomi{% endblocktrans %}</th>
-          <th>{% blocktrans %}Fakultet{% endblocktrans %}</th>
-          <th>{% blocktrans %}O`qituvchi{% endblocktrans %}</th>
-          <th>{% blocktrans %}Yaratilgan vaqti{% endblocktrans %}</th>
+        <tr style="justify-content: center ">
+              <th>{% blocktrans %}Nomi{% endblocktrans %}</th>
+              <th>{% blocktrans %}Fakultet{% endblocktrans %}</th>
+              <th>{% blocktrans %}O`qituvchi{% endblocktrans %}</th>
+              <th>{% blocktrans %}Yaratilgan vaqti{% endblocktrans %}</th>
+              <th>{% blocktrans %}Rasmi{% endblocktrans %}</th>
+              <th>{% blocktrans %}QR kod{% endblocktrans %}</th>
         </tr>
       </thead>
       {% for item in items_list %}
       <tbody class="table-secondary text-dark">
-        <tr>
-          <td><a href="{% url 'items_detail' item.id %}">{{item.name}}</a></td>
+        <tr style="justify-content: center ">
+          <td><a class="navbar-brand" href="{% url 'items_detail' item.id %}">{{item.name}}</a></td>
           <td>{{item.fakultet}}</td>
           <td>{{item.teacher}}</td>
           <td>{{item.created_at}}</td>
+          <td>
+              {% if item.image %}
+                  <img style="width: 100px; height: 100px" src="{{ item.image.url }}">
+              {% else %}
+                  <img style="width: 100px; height: 100px" src="{% static 'default/no_image.jpg' %}">
+              {% endif %}
+          </td>
+          <td>
+              <a href="{% url 'items_detail' item.id %}">
+                  <img style="width: 100px; height: 100px" src="{% static 'default/qr.png' %}">
+              </a> 
+          </td>
         </tr>
       </tbody>
       {% endfor %}

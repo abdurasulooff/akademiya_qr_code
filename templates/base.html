@@ -10,21 +10,19 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-
+    
 
 </head>
 <body>
-
-    
-    
-    
     
        <nav class="container-fluid navbar navbar-expand-sm">
         <div class="container-fluid">
           <div id="text_top" class="navbar-brand">
-
+          <a href="{% url 'home' %}">
             <img class="nav navbar-brand ms-3" id="navbar-logo" src="{% static 'images/all/logoakad.png' %}" alt="">
-            <span class="navbar-brand " id="text_logo"> {% blocktrans %}Smart Akademiya {% endblocktrans %}</span>
+            <span class="navbar-brand " id="text_logo"> {% blocktrans %}Smart Akademiya {% endblocktrans %}</span>           
+          </a>
+
           </div>
          <div class="container row">
           <div class="col-5"></div>
